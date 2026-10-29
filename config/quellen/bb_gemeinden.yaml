@@ -1,0 +1,23 @@
+id: bb_gemeinden
+typ: wfs
+bezeichnung: Gemeinden Brandenburg
+url: https://isk.geobasis-bb.de/ows/vg_wfs
+layer: app:gem
+crs: 25833
+seitengroesse: 100
+sortierung: ars
+id_feld: ars                      # 12-stelliger amtlicher Regionalschlüssel
+lizenz: Datenlizenz Deutschland - Namensnennung - Version 2.0
+quellenvermerk: "© GeoBasis-DE/LGB"
+attribute:
+  umbenennen:
+    ars: schluessel
+    gem_name: name
+    gem_art: art
+    krss: kreis_schluessel
+    gem_aktualitaet: stand
+  ausschliessen: [gem_art_kurz, gvbs]
+  konstanten:
+    ebene: gemeinde
+  typen:
+    stand: datum

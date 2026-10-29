@@ -1,0 +1,12 @@
+# Globale Einstellungen der Pipeline. Quellen liegen je eine Datei in config/quellen/.
+pipeline:
+  ziel_crs: 25833                 # ETRS89 / UTM Zone 33N - Landesstandard Brandenburg
+  zeitplan: "0 3 * * *"           # täglich 03:00; überschreibbar mit GEOIMPORT_ZEITPLAN
+  zeitzone: Europe/Berlin
+  berichte_verzeichnis: berichte
+  loeschschutz_quote: 0.5         # fehlen mehr als 50 % der Objekte, werden keine Löschungen übernommen
+  plausibilitaet_bbox: [11.2, 51.3, 14.8, 53.6]   # Brandenburg + Rand (WGS84); Objekte außerhalb -> verworfen
+  http:
+    timeout_s: 120
+    versuche: 3
+    wartezeit_s: 2

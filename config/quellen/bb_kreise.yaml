@@ -1,0 +1,23 @@
+id: bb_kreise
+typ: wfs
+bezeichnung: Landkreise und kreisfreie Städte Brandenburg
+url: https://isk.geobasis-bb.de/ows/vg_wfs
+layer: app:krs
+crs: 25833
+seitengroesse: 10                 # klein gewählt, damit Paging im Beispiel sichtbar wird
+sortierung: krss
+id_feld: krss
+lizenz: Datenlizenz Deutschland - Namensnennung - Version 2.0
+quellenvermerk: "© GeoBasis-DE/LGB"
+attribute:
+  umbenennen:
+    krss: schluessel
+    krs_name: name
+    krs_art: art
+    krs_kfz: kfz
+    krs_aktualitaet: stand
+  ausschliessen: [krss_kurz, krs_art_kurz, krs_regspr_name, krs_regspr_hk]
+  konstanten:
+    ebene: kreis
+  typen:
+    stand: datum

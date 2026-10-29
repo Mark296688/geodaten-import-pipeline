@@ -1,0 +1,28 @@
+id: bb_naturschutzgebiete
+typ: wfs
+bezeichnung: Naturschutzgebiete Brandenburg
+beschreibung: Zweiter WFS mit anderem Attributschema und GeoJSON-Ausgabe (WGS84 nach RFC 7946)
+url: https://inspire.brandenburg.de/services/schutzg_wfs
+layer: app:nsg
+ausgabeformat: geojson            # ohne crs: GeoJSON wird als WGS84 Länge/Breite gelesen
+seitengroesse: 200
+sortierung: Gebietsnummer         # stabile Reihenfolge über die Seiten hinweg
+id_feld: Gebietsnummer
+# Ein Schutzgebiet besteht oft aus mehreren Teilflächen mit derselben Gebietsnummer
+# (Stand 10/2026: 641 Teilflächen, 480 Gebiete). Sie werden zu einer MultiPolygon-Geometrie zusammengeführt.
+doppelte_ids: zusammenfuehren
+lizenz: Datenlizenz Deutschland - Namensnennung - Version 2.0
+quellenvermerk: "© Landesamt für Umwelt Brandenburg"
+attribute:
+  # Flaeche_ha_gesamt gilt je Teilfläche und entfällt deshalb; die Fläche ergibt sich aus der Geometrie.
+  nur: [Gebietsnummer, Gebietsname, Schutzgebietstyp, Schutzstatus, Inkrafttreten]
+  umbenennen:
+    Gebietsnummer: schluessel
+    Gebietsname: name
+    Schutzgebietstyp: art
+    Schutzstatus: status
+    Inkrafttreten: in_kraft_seit
+  konstanten:
+    ebene: schutzgebiet
+  typen:
+    in_kraft_seit: datum

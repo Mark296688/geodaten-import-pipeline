@@ -1,0 +1,27 @@
+id: hochschulen_osm
+typ: csv
+bezeichnung: Hochschulstandorte Brandenburg (OpenStreetMap)
+beschreibung: CSV per URL - Overpass-API liefert Punkte mit Länge/Breite in WGS84
+url: https://overpass-api.de/api/interpreter
+parameter:
+  data: |
+    [out:csv(::type,::id,::lat,::lon,name,"addr:city",website;true;";")][timeout:90];
+    area["ISO3166-2"="DE-BB"]->.bb;
+    nwr["amenity"="university"](area.bb);
+    out center;
+trennzeichen: ";"
+id_feld: ["@type", "@id"]
+geometrie:
+  x: "@lon"
+  y: "@lat"
+  crs: 4326
+lizenz: Open Database License (ODbL) 1.0
+quellenvermerk: "© OpenStreetMap-Mitwirkende"
+attribute:
+  umbenennen:
+    "@id": osm_id
+    "@type": osm_typ
+    addr:city: ort
+    website: webseite
+  konstanten:
+    art: hochschule
